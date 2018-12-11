@@ -1,0 +1,27 @@
+@charset "utf-8";
+/* CSS Document */
+		label{
+			color: darksalmon;
+/*			font-size: 20px;*/
+			color: darkblue;
+		}
+		input{
+			height: 30px;
+			color: coral;
+			/*
+			1.字体大小尽量选偶数px；
+			2.一般用14px+；
+			3.中文字体要加引号，英文一般不用
+			4.字体中有特殊符号或者空格要加引号
+			5.多种字体用,隔开，多字体并列，从前往后有哪个用哪个
+			*/
+			/*font-size:*/ 
+			font-family:  "/5b8b/4f53";/*这个是Unicode形式的宋体，可百度查找不必记忆*/
+			/*字体粗细*/
+			font-weight: 400;
+			/*行高*/
+			line-height: 28px;
+			text-align: center;
+			
+			
+		}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>哔哩哔哩表单学习</title>
+<!--link 标签放在head中-->
+<!--<link rel="stylesheet" href="CSS/CSS-test1.css">-->
+<style>
+label {
+	color: darksalmon;
+	/*			font-size: 20px;*/
+	color: darkblue;
+}
+	/*
+	后代选择器  .class a 表示 .class下的所有a标签 
+	子代选择器  .class>a 表示 .class的直接子代标签 
+	交集选择器  div.class 表示div标签且含有class属性的单标签
+	并集选择器  div,p,a 表示选中这三种标签也可以是id选择器并类选择器
+	
+	这四个的顺序是不可以改变的！！
+	↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+	伪类选择器  :link		未访问过的状态
+			  :visited 	   访问过的状态
+			  :hover       鼠标移动到标签时的状态
+			  :active      鼠标按下时的状态
+	*/
+	
+
+input {
+	height: 30px;
+	color: coral;
+	/*
+			1.字体大小尽量选偶数px；
+			2.一般用14px+；
+			3.中文字体要加引号，英文一般不用
+			4.字体中有特殊符号或者空格要加引号
+			5.多种字体用,隔开，多字体并列，从前往后有哪个用哪个
+			*/
+			/*font-size:*/ 
+	font-family: "/5b8b/4f53";/*这个是Unicode形式的宋体，可百度查找不必记忆*/
+	/*字体粗细*/
+	font-weight: 400;
+	/*行高 一般比字体大7px左右*/
+	line-height: 28px;
+	/*文字居中 水平对齐 相当于html中的align*/
+	text-align: center;
+	/*文本首行缩进*/
+	text-indent: 0em;
+	/*文字样式：上划线 下划线 */
+	text-decoration: overline;
+	
+}
+	/*这四个的顺序是不可以改变的！！！*/
+	#naruto:link{
+		font-size: 20px;
+		color: black;
+	}
+	#naruto:visited{
+		font-size: 50px;
+		color: darkmagenta;
+	}
+	#naruto:hover{
+		font-size: 30px;
+		color: brown;
+	}
+	#naruto:active{
+		font-size: 40px;
+		color: aqua;
+	}
+
+</style>
+</head>
+
+<body>
+
+<!--label 作用是点击label标签中的文字时，光标可以自动指向input文本框内，可以包住input 也可以单另写，for属性指向特定的标签，这样可以把点击label是的光标投到对应的input中-->
+<form action="一个jsp.jsp" method="post" >
+	<br />
+	<label>邮箱
+		<input type="email" >
+	</label>
+	<br />
+	<label for="text1">文本</label>
+	<input type="text" id="text1" value="文本内容" >
+	<br />
+	密码
+	<input  type="password" value="mima">
+	<br />
+	地址
+	<input type="url" value="wc0192@cumt.edu.cn">
+	<br />
+	电话
+	<input type="tel" value="19800000000">
+	<!--<br />
+	搜索
+	<input type="search">
+	<br />
+	数字
+	<input type="number" value="123456">
+	<br />
+	范围
+	<input type="range" max="300" value="20">
+	<br />
+	颜色
+	<input type="color" value="black">-->
+
+	日期
+	<input type="date">
+
+<!--	当地时间
+	<input type="datetime">
+	<br />
+	文本域
+	<textarea>
+</textarea>
+	<br />
+	<label>标签</label>-->
+	按钮
+	<input type="button" value="一个按钮">
+
+	提交
+	<input type="submit" value="按钮名称">
+
+	重置
+	<input type="reset" >
+
+	文件
+	<input type="file">
+
+	图像
+	<input type="image" src="image1.jpg" height="20px" value="image">
+	
+	<div>
+<!--	<img id="naruto" src="img/鸣人1.jpg" alt="一张图片" height="100px">-->
+		<a id="naruto" href="http://www.hao123.com" target="_blank">这是个链接</a>
+	</div>
+<!--	<br />
+	隐藏
+	<input type="hidden">-->
+</form>
+<br />
+<!--下拉菜单 select下有option option两个属性 value selected-->
+	<!--label包含着input复选框 这样在点击文字时也可以选中-->
+<!--<select>
+	<option value="">请选择</option>
+	<option value="first">first</option>
+	<option value="second" selected>second</option>
+	<option value="third">third</option>
+	<option value="fourth">fourth</option>
+	<option value="fifth">fifth</option>
+</select>
+
+<p>
+	<label>
+		<input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_0" checked>
+		复选框</label>
+	<br>
+	<label>
+		<input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_1" checked>
+		复选框</label>
+	<br>
+	<label>
+		<input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_2">
+		复选框</label>
+	<br>
+	<label>
+		<input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_3">
+		复选框</label>
+	<br>
+	<label>
+		<input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_4">
+		复选框</label>
+	<br>
+</p>
+<p>
+	<label>
+		<input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_0">
+		单选</label>
+	<br>
+	<label>
+		<input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_1" checked="checked">
+		单选</label>
+	<br>
+	<label>
+		<input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_2">
+		单选</label>
+	<br>
+	<label>
+		<input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_3">
+		单选</label>
+	<br>
+</p>-->
+</body>
+</html>

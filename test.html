@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>哔哩哔哩学习视频</title>
+</head>
+<p>p标签 this is a p label</p>
+<!--单标签  换行-->
+<br />
+<!--单标签  横线-->
+<hr /> 
+	<!--span和div常用的两个标签，一个分行一个不分行-->
+<span>这个不分行</span><span>这个不分行</span>
+<div>这个分行</div>
+<div>这个分行</div>
+	<!--b i u s 标签，加粗倾斜下划线删除线-->
+<p>接下来是四中不同的文字<b>第一种 加粗</b><i>第二种 倾斜</i><u>第三种 下划线</u><s>第四种 删除线</s></p>
+<!--src 是源文件 alt 是文件损坏后的显示内容 title是鼠标悬停时显示的内容 -->
+<img src="image1.jpg" alt="一张深山古寺的图片" title="道君" /><br />
+	<!--base 规定所有a标签的target 单标签-->
+	<base target="_blank" />
+	<!--href 是源文件，注意外部网页前要加http:// 内部文件可以直接写-->
+<a href="http://www.baidu.com" >
+百度1
+</a>
+&nbsp;&nbsp;
+<a href="image1.jpg"  title="一张图片" target="_blank">
+图片
+</a>
+&nbsp;&nbsp;
+<a href="视频.mp4"  title="一段视频" target="_blank">
+视频
+</a>
+&nbsp;&nbsp;
+<br />
+	<!--锚点：在很长的网页中快速定位
+	<a href="#id" ></a>
+-->
+	特殊字符<p>&amp;nbsp;---空格 &nbsp;&nbsp; &nbsp;&nbsp; &amp;amp;---&amp;&nbsp;&nbsp; &nbsp;&nbsp;  &amp;lt;--- &lt; &nbsp;&nbsp; &nbsp;&nbsp;&amp;gt;---&gt;</p>
+	
+	<!--相对路径  三种情况：1.同一文件夹，直接写文件名 2.本文件夹的下级文件夹，直接写文件夹/文件名 3.别的文件夹 ../表示上级文件夹，一级一级的写-->
+	<a href="img/image1.jpg" >fighting!</a>
+	<a href="../各种函数.txt" >fighting2!</a>
+	<!--无序列表必须配套使用ul和li ul中不能嵌套别的标签和文字，li中可以-->
+	<ul>
+	<li>无序列表</li>
+	<li>list1</li>
+	<li>list2</li>
+	<li>list3</li>	
+	<li>list4</li>
+	<li>list5</li>
+	<li>list6</li>
+	</ul>
+	<!--有序列表必须配套使用ol和li ol中不能嵌套别的标签和文字，li中可以-->
+	<ol>
+	<li>有序列表</li>
+	<li>list1</li>
+	<li>list2</li>
+	<li>list3</li>	
+	<li>list4</li>
+	<li>list5</li>
+	<li>list6</li>
+	</ol>
+	<!--自定义列表必须配套使用dl和dt dd dl中不能嵌套别的标签和文字，dt dd中可以   dd 是对dt的解释说明-->
+	<dl>
+	<dt>自定义列表</dt>
+	<dd>list1</dd>
+	<dd>list2</dd>
+	<dd>list3</dd>	
+	<dd>list4</dd>
+	<dd>list5</dd>
+	<dd>list6</dd>
+	</dl>
+	
+	<!--table标签下有 caption 表示表格标题 tr表示行(td表示单元格 th表示表头)  合并单元格用到两个属性：colspan rowspan-->
+	<table  cellspacing="0" border="1">
+		<caption>不知道叫什么表格</caption>
+	<tr>
+		<th>姓名</th>
+		<th>年龄</th>
+		<th>性别</th>
+		</tr>
+	<tr>
+		<td>王</td>
+		<td>22</td>
+		<td rowspan="2">男</td>
+		</tr>	
+	<tr>
+		<td colspan="2">html</td>
+		<td >0.1</td>
+		<td>unknown</td>
+		</tr>		
+	<tr>
+		<td >JavaScript</td>
+		<td>0</td>
+		<td >unknown</td>
+		</tr>
+	</table>
+	
+<body>
+</body>
+</html>

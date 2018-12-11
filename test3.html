@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>视频练习题1</title>
+	<style>
+		.site-r>a {
+			color: red;
+		}
+		.nav a {
+			color:orange;
+			
+		}
+		.nav,.sitenav {
+			font-size: 14px;
+			font-family: "微软雅黑";
+			
+		}
+		.nav>ul>li>a {
+			color: green;
+		}
+		table,th,td {
+			text-align: center;
+			border-color: black;
+			border-collapse: collapse;
+			
+		}
+		caption {
+			font-weight: 700;
+			font-size: 30px;
+		}
+		.tips {
+			color: firebrick;
+		}
+		#list {
+			background-image: url("img/image2.jpg");
+			background-repeat: no-repeat;
+			background-color: antiquewhite;
+			background-attachment: fixed;
+			background-position: right 20px;
+			/*color: aliceblue;*/
+			
+			
+			
+
+		}
+		/*li {
+			background: rgba(15,15,15,0.80);
+		}*/
+		
+	</style>
+</head>
+<body>
+	<h1>https://www.bilibili.com/video/av21704838/?p=75</h1>
+	<ul id="list">
+		<li>1.让行内块元素居中，用div包住，对div使用text-align:center；块级元素中的行内元素可以水平居中</li>
+		<li>2.行高=盒子的高度，可以让单行文本垂直居中（水平用text-align:center;）</li>
+		<li>3.display:block/inline/inline-block可以进行标签转换</li>
+		<li>4.h1-h6，p标签中尽量只有文字，否则可能有问题</li>
+		<li>5.a标签中不要再放a标签，但a中可以放块级元素</li>
+		<li>6.CSS权重（内联样式的先后顺序也是遵守权重顺序的）
+			<ul>
+				<li>属性值后+“!important”（无穷大）</li>
+				<li>内联样式（1000）</li>
+				<li>id选择器（100）</li>
+				<li>类、伪类、属性选择器（10</li>
+				<li>标签、伪元素（1）</li>
+				<li>
+					<span class="tips">ps：</span><br>
+					I.无论多少类选择器权重相加都不如一个id选择器，无论多少标签选择器相加都不如一个类选择器；<br>
+					II.无论父标签权重有多大，只要是子标签继承的，权重就是0；<br>
+				</li>
+			</ul>
+		</li>
+		<li>7.background:rgba(0,0,0,0) red green blue alpha a在0-1之间取值，调整不透明度</li>
+		<li>8.border:1px solid red;</li>
+		<li>9.table标签边框合并 border-collapse:collapse;</li>
+		<li>10.padding的四种写法:
+			<ul>
+				<li>padding:1px;上下左右</li>
+				<li>padding:1px 2px;上下，左右</li>
+				<li>padding:1px 2px 3px;上，左右，下</li>
+				<li>padding:1px 2px 3px 4px;上，右，下，左</li>
+				<li>padding只有在给定width的情况下才会撑开盒子，默认的width不会撑开</li>
+			</ul>
+		</li>
+		<li>11.maigin 只有块级元素能使用，而且需要先设置width，因为块级元素width默认100% <br>
+			<ul>
+				<li>盒子居中：margin:auto; 文字内容居中：text-align:center;</li>
+			</ul>
+		</li>
+		<li>12.一般不用*选择器，因为所有标签执行起来会比较慢，宁愿写很多并集选择器</li>
+		<li>13.小心垂直方向的外边距会自动合并，也就是上下两个标签的margin-top和margin-bottom会取比较大的值</li>
+		<li>14.嵌套标签会出现垂直方向的合并，也就是可能会内盒子改了margin结果外盒子也一起移动，解决方案有2种
+			<ul>
+				<li>方法1.给外盒子加padding或border:1px</li>
+				<li>方法2.给内盒子加一个overflow:hidden;</li>
+			</ul>
+		</li>
+		<li>15.建议使用优先级：width&gt;padding&gt;margin</li>
+		<li>16.border-radius:0%,0%,0%,0%;为50%或者为高宽1/2的时候，正方形变成圆形</li>
+		
+	
+	</ul>
+	<table border="1" cellpadding="10px" align="center"><br>
+		<caption>快捷键生成标签</caption>
+		<tr>
+			<th>按下Tab键</th>
+			<th>效果</th>
+		</tr>
+		<tr>
+			<td>div</td>
+			<td>生成div双标签</td>
+		</tr>
+		<tr>
+			<td>div.demo</td>
+			<td>生成class名为demo的双标签</td>
+		</tr>
+		<tr>
+			<td>div#name</td>
+			<td>生成id名为name的双标签</td>
+		</tr>
+		<tr>
+			<td>div+p</td>
+			<td>生成兄弟标签</td>
+		</tr>
+		<tr>
+			<td>div&gt;p</td>
+			<td>生成父子标签</td>
+		</tr>
+		<tr>
+			<td>div#name+p.demo</td>
+			<td>生成id名为name的div和类名为demo的p，两者为兄弟关系</td>
+		</tr>
+	</table>
+			<br>
+		<br>
+	<table border="1" cellpadding="10px" align="center"><br>
+		<caption>行内元素和块级元素的区别</caption>
+		<tr>
+			<th>块级元素</th>
+			<th>行内元素（内联元素）</th>
+			<th>行内块元素</th>
+		</tr>
+		<tr>
+			<td>常见：div,dl,form,h1-h6,hr,ol,p,table,ul</td>
+			<td>常见：a,abbr,b,br,em,i,span,</td>
+			<td>常见：img,input,td</td>
+		</tr>
+		<tr>
+			<td>总是从新行开始</td>
+			<td>和相邻行内元素在一行上</td>
+			<td>同行内元素</td>
+		</tr>
+		<tr>
+			<td>高度、行高、外边距以及内边距都可以控制</td>
+			<td>高、宽无效，只能水平方向调整margin、padding，垂直方向无效</td>
+			<td>同块级元素</td>
+		</tr>
+		<tr>
+			<td>宽度默认100%</td>
+			<td>宽度默认为本身内容的宽度</td>
+			<td>宽度默认为本身内容的宽度</td>
+		</tr>
+		<tr>
+			<td>可以容纳内联元素和其他块级元素</td>
+			<td>行内元素只能容纳文本和其他行内元素</td>
+		</tr>
+		
+	</table>
+	<!--导航栏-->
+	<!--<div class="nav">
+		<ul>
+			<li><a href="#">公司首页</a></li>
+			<li><a href="#">公司简介</a></li>
+			<li><a href="#">公司产品</a></li>
+			<li>
+				<a href="#">联系我们</a>
+				<ul>
+					<li><a href="#">公司邮箱</a></li>
+					<li><a href="#">公司电话</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>-->
+	<!--侧导航栏-->
+	<!--<div class="sitenav">
+		<div class="site-l">左侧侧导航栏</div>
+		<div class="site-r"><a href="#">登录</a></div>
+	</div>-->
+</body>
+</html>
