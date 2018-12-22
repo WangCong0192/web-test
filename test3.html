@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <title>视频练习题1</title>
 	<style>
+		ul,li,div,p,body {
+			margin: 0;
+			border: 0;
+		}
 		.site-r>a {
 			color: red;
 		}
@@ -44,6 +48,9 @@
 			
 
 		}
+		#list:hover {
+			box-shadow:0 15px 30px rgba(0,0,0,0.1);
+		}
 		/*li {
 			background: rgba(15,15,15,0.80);
 		}*/
@@ -51,13 +58,13 @@
 	</style>
 </head>
 <body>
-	<h1>https://www.bilibili.com/video/av21704838/?p=75</h1>
+<!--	<h1>https://www.bilibili.com/video/av21704838/?p=79</h1>-->
 	<ul id="list">
 		<li>1.让行内块元素居中，用div包住，对div使用text-align:center；块级元素中的行内元素可以水平居中</li>
 		<li>2.行高=盒子的高度，可以让单行文本垂直居中（水平用text-align:center;）</li>
 		<li>3.display:block/inline/inline-block可以进行标签转换</li>
 		<li>4.h1-h6，p标签中尽量只有文字，否则可能有问题</li>
-		<li>5.a标签中不要再放a标签，但a中可以放块级元素</li>
+		<li>5.a标签中不要再放a标签，但a中可以放块级元素，a去除下划线（text-decoration:none;）</li>
 		<li>6.CSS权重（内联样式的先后顺序也是遵守权重顺序的）
 			<ul>
 				<li>属性值后+“!important”（无穷大）</li>
@@ -99,6 +106,19 @@
 		</li>
 		<li>15.建议使用优先级：width&gt;padding&gt;margin</li>
 		<li>16.border-radius:0%,0%,0%,0%;为50%或者为高宽1/2的时候，正方形变成圆形</li>
+		<li>17.box-shadow:左右位移(必需) 上下位移(必需) 模糊距离 阴影尺寸 阴影颜色 内外阴影
+		<ul>
+			<li>eg：box-shadow:0 15px 30px rgba(0,0,0,0.1);</li>
+			<li>后面跟的值，前两个一定是位移，后面的依次表示，第三个值一定是模糊距离，第四个值一定是阴影尺寸...</li>
+		</ul>
+		</li>
+		<li>17.float:left/right，让div在同一行显示（默认转换为行内块，自带宽高）
+		<ul>
+			<li>如果要浮动，最好都浮动，因为浮动会影响后面的块级元素</li>
+			<li>可以用一个div包住多个浮动的div，标准流和浮动搭配使用</li>
+			<li>要让块级元素同一行的话，float优于display:inline-block</li>
+		</ul>
+		</li>
 		
 	
 	</ul>
