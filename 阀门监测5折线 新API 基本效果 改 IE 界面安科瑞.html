@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>阀门监测ARCA</title>
+<link type="text/css" rel="stylesheet" href="CSS/arca.css">
+<script src="arca_js/mqttws31.js"></script>
+<script src="arca_js/usrCloud.js"></script>
+<script src="arca_js/jquery-3.2.1.min.js"></script>
+</head>
+<body >
+<div id="myTitle">阀门监测
+  <div id="myTitle-ARCA">@ARCA-KERIT</div>
+</div>
+<br/>
+<br/>
+<div id="boxsShow">
+  <button id="boxsShowButton1" onclick="box1Show()" class="buttonStyle boxTable">登陆界面</button>
+  <br/>
+  <button id="boxsShowButton2" onclick="box2Show()" class="buttonStyle boxTable">设备列表</button>
+  <br/>
+  <button id="boxsShowButton3" onclick="box3Show()" class="buttonStyle boxTable">历史数据</button>
+  <br/>
+  <button id="boxsShowButton4" onclick="box4Show()" class="buttonStyle boxTable">精度分析</button>
+  <br/>
+  <button id="boxsShowButton" onclick="allBoxsShow()" class="buttonStyle boxTable">同时显示</button>
+</div>
+<div id="box1" class="boxstyle">
+  <div id="box1Title" class="boxsTitle">登录</div>
+  帐号：
+  <input id="account" class="box1Input" value="阀门监测ARCA"/>
+  <br/>
+  密码：
+  <input id="password" class="box1Input" type="password" value="famenjiancearca"/>
+  <br/>
+  <button onclick="connect()" class="buttonStyle box1Button ">登录</button>
+  <button onclick="disConnect()" class="buttonStyle box1Button">断开</button>
+  <div id="info1" class="info" ></div>
+  <span id="token"></span> </div>
+<div id="box2" class="boxstyle">
+  <div id="box2Title" class="boxsTitle">设备列表</div>
+  <div id="box2ThreeTable" class="div-inline">
+    <div class="content div-inline">
+      <div class="select">
+        <p id="selectBox">请选择</p>
+        <ul id="selectUl1">
+          <li class="selectLi1" data-value="华东区">华东区</li>
+          <li class="selectLi1" data-value="华北区">华北区</li>
+          <li class="selectLi1" data-value="东北区">东北区</li>
+          <li class="selectLi1" data-value="华南区">华南区</li>
+          <li class="selectLi1" data-value="西北区">西北区</li>
+          <li class="selectLi1" data-value="海外区">海外区</li>
+        </ul>
+      </div>
+    </div>
+    <div id="buttonGetDevs" class="div-inline">
+      <button onclick="getDevs()" class="buttonStyle box2Button">获取设备列表</button>
+      <button onclick="clear6()" class="buttonStyle box2Button">清空</button>
+    </div>
+  </div>
+  <div id="info3" style="color:#1aa203"></div>
+  <ul id="devList">
+  </ul>
+  <div id="container2" ></div>
+  <ul id="devList2">
+  </ul>
+</div>
+<div id="box3" class="boxstyle">
+  <div id="box3Title" class="boxsTitle">历史数据</div>
+  <div id="box3In"> 起始时间：
+    <input id="textYear" value="2018" size="4"/>
+    年
+    <input id="textMonth"  value="08" size="4"/>
+    月
+    <input id="textDay"  value="09" size="4"/>
+    日
+    <input id="textHour"  value="14" size="4"/>
+    时
+    <input id="textMinute"  value="48" size="4"/>
+    分
+    <input id="textSecond"  value="27" size="4"/>
+    秒 <br/>
+    结束时间：
+    <input id="textYear1" value="2018" size="4"/>
+    年
+    <input id="textMonth1"  value="08" size="4"/>
+    月
+    <input id="textDay1"  value="09" size="4"/>
+    日
+    <input id="textHour1"  value="15" size="4"/>
+    时
+    <input id="textMinute1"  value="48" size="4"/>
+    分
+    <input id="textSecond1"  value="27" size="4"/>
+    秒
+    <button onclick="getTimeperiod()" class="buttonStyle">前溯一天</button>
+    <button onclick="testTime()" class="buttonStyle">测试时间</button>
+    <br/>
+    设备id：
+    <input id="myDevId"  value="356566078329992" size="18"/>
+    数据点1id：
+    <input id="myDataId1"  value="29497" size="4"/>
+    数据点2id：
+    <input id="myDataId2"  value="29686" size="4"/>
+    数据点3id：
+    <input id="myDataId3"  value="29687" size="4"/>
+    数据点4id：
+    <input id="myDataId4"  value="29688" size="4"/>
+    数据点5id：
+    <input id="myDataId5"  value="29689" size="4"/>
+    <br/>
+    <br/>
+    <button id="dataPoint1" onclick="dataPoint1Hide()" class="buttonStyle dataPoints">数据点1</button>
+    <button id="dataPoint2" onclick="dataPoint2Hide()" class="buttonStyle dataPoints">数据点2</button>
+    <button id="dataPoint3" onclick="dataPoint3Hide()" class="buttonStyle dataPoints">数据点3</button>
+    <button id="dataPoint4" onclick="dataPoint4Hide()" class="buttonStyle dataPoints">数据点4</button>
+    <button id="dataPoint5" onclick="dataPoint5Hide()" class="buttonStyle dataPoints">数据点5</button>
+    <button id="hideAllDatapoints" onclick="clear5()" class="buttonStyle">隐藏数据</button>
+    <button onclick="showTheCharts()" class="buttonStyle">显示图像</button>
+    <button onclick="showTestChart()" class="buttonStyle">测试图像</button>
+    <button id="hideEcharts" onclick="clearechrats()" class="buttonStyle">隐藏图像</button>
+    <button onclick="postData()" class="buttonStyle">发送数据</button>
+    <div id="info4" style="color:#1aa203"></div>
+    <div id="historyTime" class="div-inline">
+      <ul id="historyTime1" class="historyDataBox" style="display:none">
+      </ul>
+      <ul id="historyTime2" class="historyDataBox" style="display:none">
+      </ul>
+      <ul id="historyTime3" class="historyDataBox" style="display:none">
+      </ul>
+      <ul id="historyTime4" class="historyDataBox" style="display:none">
+      </ul>
+      <ul id="historyTime5" class="historyDataBox" style="display:none">
+      </ul>
+    </div>
+    <div id="historyValue" class="div-inline">
+      <ul id="historyValue1" class="historyDataBox" style="display:none">
+      </ul>
+      <ul id="historyValue2" class="historyDataBox" style="display:none">
+      </ul>
+      <ul id="historyValue3" class="historyDataBox" style="display:none">
+      </ul>
+      <ul id="historyValue4" class="historyDataBox" style="display:none">
+      </ul>
+      <ul id="historyValue5" class="historyDataBox" style="display:none">
+      </ul>
+    </div>
+    <ul class="transparentPlace" id="transparentPlace1" style="display:none">
+    </ul>
+    <ul class="transparentPlace" id="transparentPlace2" style="display:none">
+    </ul>
+    <ul class="transparentPlace" id="transparentPlace3" style="display:none">
+    </ul>
+    <ul class="transparentPlace" id="transparentPlace4" style="display:none">
+    </ul>
+    <ul class="transparentPlace" id="transparentPlace5" style="display:none">
+    </ul>
+  </div>
+  <div id="container" style="height: 500px;"></div>
+</div>
+<div id="box4" class="boxstyle">
+  <div id="box4Title" class="boxsTitle">精度分析</div>
+  <div id="box4In">
+    <div id="pointK"> K点： </div>
+    <br/>
+    <!--precision analysis精度分析，取首字母PA-->
+    <div id="PA">
+      <table class="tableStyle">
+        <caption>
+        调节阀分析结果
+        </caption>
+        <tr class="tableItem">
+          <th class="tableItem">基本误差（%）</th>
+          <th class="tableItem">回差（%）</th>
+          <th class="tableItem">死区（%）</th>
+        </tr>
+        <tr class="tableItem">
+          <td class="tableItem">0</td>
+          <td class="tableItem">0</td>
+          <td class="tableItem">0</td>
+        </tr>
+        <tr class="tableItem">
+          <th class="tableItem">额定行程偏差（%）</th>
+          <th class="tableItem">气开始点偏差（%）</th>
+          <th class="tableItem">气关终点偏差（%）</th>
+        </tr>
+        <tr class="tableItem">
+          <td class="tableItem">0</td>
+          <td class="tableItem">0</td>
+          <td class="tableItem">0</td>
+        </tr>
+      </table>
+      <div>
+        <table class="tableStyle table2Style">
+          <caption>
+          精度分析过程
+          </caption>
+          <tr class="tableItem">
+            <th class="tableItem">气开阀始点偏差</th>
+            <td class="tableItem">0</td>
+          </tr>
+          <tr class="tableItem">
+            <th class="tableItem">信号段</th>
+            <th class="tableItem">每档行程标准</th>
+            <th class="tableItem">正行程实测值</th>
+            <th class="tableItem">反行程实测值</th>
+            <th class="tableItem">正基本误差（%）</th>
+            <th class="tableItem">反基本误差（%）</th>
+          </tr>
+          <tr class="tableItem">
+            <td class="tableItem">4mA</td>
+            <td class="tableItem">0</td>
+            <td class="tableItem">0</td>
+            <td class="tableItem">0</td>
+            <td class="tableItem">0</td>
+            <td class="tableItem">0</td>
+          </tr>
+          <tr class="tableItem">
+            <td class="tableItem">25%</td>
+            <td class="tableItem">0</td>
+            <td class="tableItem">0</td>
+            <td class="tableItem">0</td>
+            <td class="tableItem">0</td>
+            <td class="tableItem">0</td>
+          </tr>
+          <tr class="tableItem">
+            <td class="tableItem">50%</td>
+            <td class="tableItem">0</td>
+            <td class="tableItem">0</td>
+            <td class="tableItem">0</td>
+            <td class="tableItem">0</td>
+            <td class="tableItem">0</td>
+          </tr>
+          <tr class="tableItem">
+            <td class="tableItem">75%</td>
+            <td class="tableItem">0</td>
+            <td class="tableItem">0</td>
+            <td class="tableItem">0</td>
+            <td class="tableItem">0</td>
+            <td class="tableItem">0</td>
+          </tr>
+          <tr class="tableItem">
+            <td class="tableItem">100%</td>
+            <td class="tableItem">0</td>
+            <td class="tableItem">0</td>
+            <td class="tableItem">0</td>
+            <td class="tableItem">0</td>
+            <td class="tableItem">0</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script> 
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script> 
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script> 
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script> 
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script> 
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script> 
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script> 
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script> 
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script> 
+<script type="text/javascript" src="arca_js/testData.js"></script>
+<script type="text/javascript" src="arca_js/_youren.js"></script>
+<script type="text/javascript" src="arca_js/_box1234.js"></script>
+</body>
+</html>

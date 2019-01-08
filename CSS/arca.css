@@ -1,0 +1,440 @@
+
+.content .select {
+    width: 100px;
+    height: 0%;
+    z-index: 1;
+    font-family: "Microsoft Yahei";
+    font-size: 14px;
+    background-color: #fff;
+    position: relative;
+    top: 0%;
+    left: 0;
+    cursor: pointer;
+}
+#selectBox {
+    border: 1px solid #ADD8E6;
+    background-color: #FFF;
+    color: #333;
+    margin-top: 0%;
+    cursor: pointer;
+}
+#selectUl1, .selectLi1 {
+    margin: 0;
+    padding: 0;
+    background-color: #F5F5F5;
+    color: #333;
+}
+.content .select:after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-left: 1px #ccc solid;
+    border-bottom: 1px #ccc solid;
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    transform: rotate(-45deg);
+    transition: transfrom .0s ease-in, top .0s ease-out;
+}
+.content .select #selectBox {
+    padding: 0 15px;
+    line-height: 30px;
+    cursor: pointer;
+}
+.content .select #selectUl1 {
+    list-style-type: none;
+    background-color: #fff;
+    width: 100%;
+    overflow-y: auto;
+    position: absolute;
+    ;
+    top: 30px;
+    left: 0;
+    max-height: 0;
+}
+.content .select #selectUl1 .selectLi1 {
+    padding: 0 15px;
+    line-height: 30px;
+    cursor: pointer;
+}
+.content .select #selectUl1 .selectLi1:hover {
+    background-color: #ADD8E6;
+}
+.content .select #selectUl1 .selectLi1.selected {
+    background-color: #39f;
+    color: #fff;
+}
+.content .select.open #selectUl1 {
+    max-height: 250px;
+    transform-origin: 50% 0;
+    -webkit-animation: slide-down .5s ease-in;
+    transition: max-height .3s ease-out;
+}
+.content .select.open:after {
+    transform: rotate(-225deg);
+    top: 12px;
+    transition: all .3s ease-in;
+}
+#myTitle {
+    background-color: #4682B4;
+    background-size: 100% 100%;
+    padding-top: 1%;
+    padding-left: 1%;
+    background-attachment: fixed;
+    font-family: "STXinwei";
+    font-size: 27px;
+    color: #FFF;
+    border: 0;
+    margin-bottom: 0%;
+    text-align: left;
+    position: fixed;
+    width: 100%;
+    height: 34px;
+    z-index: 2;
+}
+#myTitle-ARCA {
+    background-attachment: fixed;
+    font-family: "STXinwei";
+    font-size: 16px;
+    color: #FFF;
+    border: 0;
+    margin-top: -1%;
+    text-align: right;
+    position: fixed;
+    width: 97%;
+}
+.info {
+    color: #1aa203;
+}
+input {
+    text-align: center;
+}
+body {
+    background-image: linear-gradient(to top, #FFF, #ADD8E6);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    margin: auto;
+    width: 100%;
+}
+#info3 {
+    text-align: left;
+    margin-top: 5%;
+}
+#box1 {
+    background-color: #FFF;
+    text-align: center;
+    position: relative;
+    left: 0%;
+    top: -179px;
+    width: 80%;
+    margin-left: 151px;
+    line-height: 200%;
+    min-height: 181px;
+    margin-top: 0%;
+}
+#box2 {
+    text-align: left;
+    background-color: #FFF;
+    position: relative;
+    left: 0%;
+    top: -179px;
+    width: 80%;
+    margin-left: 151px;
+    line-height: 200%;
+    margin-top: 0%;
+    min-height: 430px;
+    display: none;
+}
+#box3 {
+    text-align: left;
+    background-color: #FFF;
+    position: relative;
+    left: 0%;
+    top: -179px;
+    margin-left: 151px;
+    width: 80%;
+    margin-top: 0%;
+    line-height: 200%;
+    min-height: 400px;
+    display: none;
+}
+#box3In {
+    padding: 6px;
+    padding-left: 15px;
+}
+.buttonStyle {
+    line-height: 200%;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 0px 6px 0px 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    height: 1%;
+    font-size: 14px;
+    border-radius: 2px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.buttonStyle:hover {
+	/*border:2px solid #4CAF50;*/
+    box-shadow: 3px 3px 5px 0 rgba(0,0,0,0.24);
+}
+.buttonStyle:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+#boxsShow {
+    margin-left: 0%;
+    margin-top: 3%;
+    border: none;
+	width: 120px;
+	background-color: #4CAF50;
+}
+.boxTable {
+    margin-left: 0px;
+    width: 120px;
+    height: 40px;
+    font-size: 17px;
+    text-align: right;
+  	background:url("../arca_img/右箭头1.png") no-repeat;
+    background-position-y: 10px;
+    background-position-x: 5px;
+    background-size: 20px 20px;
+    background-color: #4CAF50;
+}
+#container {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: none;
+}
+.box1Button {
+    padding: 0px 6px 0px 6px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    height: 1%;
+    font-size: 14px;
+    border-radius: 2px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+#account #password {
+    width: 15%;
+}
+.box1Input {
+    width: 15%;
+}
+.box2Button {
+    padding: 0px 6px 0px 6px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    height: 1%;
+    font-size: 14px;
+    border-radius: 2px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+#box2ThreeTable {
+    position: absolute;
+    left: 16px;
+    top: 66px;
+}
+#buttonGetDevs {
+    margin-left: 10px;
+}
+.div-inline {
+    float: left;
+}
+#devList {
+    float: left;
+}
+#devList2 li {
+    opacity: 0;
+    border-bottom-color: #dcdcdc;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    width: 280px;
+    text-align: center;
+    list-style-type: none;
+}
+#devList li {
+    border-bottom-color: #dcdcdc;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    width: 280px;
+    text-align: center;
+    list-style-type: none;
+}
+.boxstyle {
+    border-left-color: #1e90ff;
+    border-left-style: solid;
+    border-left-width: 3px;
+    border-top-color: #1e90ff;
+    border-top-style: solid;
+    border-top-width: 3px;
+    border-bottom-color: #1e90ff;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+    border-right-color: #1e90ff;
+    border-right-width: 3px;
+    border-right-style: solid;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-bottom: 20px;
+}
+.boxsTitle {
+    padding-top: 1%;
+    padding-left: 3%;
+    padding-bottom: 0.5%;
+    font-family: "STXinwei";
+    font-size: 27px;
+    color: #FFF;
+    border: 0;
+    margin-bottom: 1%;
+    text-align: left;
+    width: 97%;
+    height: 34px;
+    border-left-color: #1e90ff;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-top-left-radius: 8px;
+    margin-left: -1px;
+    background: url("../arca_img/boxTitle-image.png") no-repeat;
+    background-position-y: 10px;
+    background-position-x: 10px;
+    background-size: 30px 30px;
+    text-indent: 35px;
+    background-color: #4682B4;
+}
+#box1Title {
+    background: url("../arca_img/box1Title-image.png") no-repeat;
+    background-position-y: 10px;
+    background-position-x: 10px;
+    background-size: 30px 30px;
+    background-color: #4682B4;
+}
+#box3Title {
+    background: url("../arca_img/box3Title-image.png") no-repeat;
+    background-position-y: 10px;
+    background-position-x: 10px;
+    background-size: 30px 30px;
+    background-color: #4682B4;
+}
+.historyDataBox {
+    display: none;
+}
+.dataPoints {
+    margin-left: -4px;
+}
+#dataPoint5 {
+    margin-left: -4px;
+    margin-right: 3px;
+}
+#hideAllDatapoints {
+    margin-right: 3%;
+}
+.historyDataBox li {
+    border-bottom-color: #dcdcdc;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    width: 200px;
+    text-align: center;
+    list-style-type: none;
+}
+#historyTime {
+    display: inline;
+}
+#historyTime ul {
+    display: none;
+}
+#historyValue ul {
+    display: none;
+}
+#historyValue {
+    display: inline;
+    position: relative;
+    left: 3%;
+}
+.transparentPlace li {
+    opacity: 0;
+    border-bottom-color: #dcdcdc;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    list-style-type: none;
+}
+.historyDataTitle {
+    color: #4682b4;
+    font-family: KaiTi;
+    font-size: 22px;
+}
+#boxsShowButton1 {
+    margin-left: 13px;
+}
+#container2 {
+    height: 300px;
+    width: 300px;
+    position: relative;
+    left: 5%;
+    float: left;
+}
+#box4 {
+    text-align: left;
+    background-color: #FFF;
+    position: relative;
+    left: 0%;
+    top: -179px;
+    width: 80%;
+    margin-left: 151px;
+    line-height: 200%;
+    margin-top: 0%;
+    min-height: 430px;
+    display: none;
+}
+#box4In {
+    width: 100%;
+    padding: 6px;
+    padding-left: 15px;
+    margin-left: 5%;
+}
+#pointK {
+    font-size: 30px;
+    margin-left: 5%;
+}
+.tableStyle {
+    width: 75%;
+    text-align: center;
+    align: center;
+    /*边框合并*/
+    border-collapse: collapse;
+}
+.table2Style {
+    margin-bottom: 3%;
+    margin-top: 3%;
+}
+.tableItem {
+    border: 1px solid #0094ff;
+}
+th {
+    background-color: lightblue;
+    font-weight: bolder;
+    font-size: 19px;
+}
+caption {
+    font-size: 27px;
+    padding-bottom: 15px;
+}
